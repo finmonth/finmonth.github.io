@@ -161,9 +161,7 @@ function RootComponent() {
       window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
     if (isRecoveryFlow && isLocalHost) {
-      const productionRecoveryUrl = new URL(
-        "https://" + ["finmonth", "lovable", "app"].join(".") + "/redefinir-senha",
-      );
+      const productionRecoveryUrl = new URL("https://finmonth.github.io/redefinir-senha");
       productionRecoveryUrl.hash = window.location.hash.replace(/^#/, "");
       window.location.replace(productionRecoveryUrl.toString());
       return;
