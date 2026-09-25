@@ -26,6 +26,7 @@ jobs:
         with:
           repository: jeffersonrcs-cmd/finmonth
           ref: main
+          token: ${{ secrets.FINMONTH_SOURCE_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
