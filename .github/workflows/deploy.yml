@@ -32,7 +32,9 @@ jobs:
         run: npm install
 
       - name: Build FinMonth App
-        run: npm run build
+        run: |
+          npm run build
+          node scripts/prerender-pages.mjs
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://nidnqrosqefnjlmfgein.supabase.co' }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_DJNMwXPx7d_NTm9ya6lyhA_wnq-Xn4X' }}
