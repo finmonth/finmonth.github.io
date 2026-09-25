@@ -34,8 +34,8 @@ jobs:
       - name: Build FinMonth App
         run: |
           npm run build
-          cp public/index.html .output/public/index.html
-          cp public/404.html .output/public/404.html
+          cp -r public/* .output/public/
+          touch .output/public/.nojekyll
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://nidnqrosqefnjlmfgein.supabase.co' }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_DJNMwXPx7d_NTm9ya6lyhA_wnq-Xn4X' }}
