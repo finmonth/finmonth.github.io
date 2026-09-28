@@ -40,8 +40,8 @@ jobs:
       - name: Build FinMonth App
         run: |
           npm run build
-          rsync -a --exclude='*.html' public/ .output/public/
-          touch .output/public/.nojekyll
+          rsync -a --exclude='*.html' public/ dist/
+          touch dist/.nojekyll
         env:
           VITE_BASE_PATH: /
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://nidnqrosqefnjlmfgein.supabase.co' }}
@@ -50,7 +50,7 @@ jobs:
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ".output/public"
+          path: "dist"
 
   deploy:
     environment:
